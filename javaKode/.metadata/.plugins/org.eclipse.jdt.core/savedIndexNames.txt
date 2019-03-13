@@ -1,0 +1,12 @@
+INDEX VERSION 1.131+/home/erling/koding/plab2019/javaKode/.metadata/.plugins/org.eclipse.jdt.core
+3576685673.index
+780887493.index
+1770491703.index
+2982363713.index
+1072103855.index
+1187918193.index
+2395279978.index
+3201053939.index
+838719312.index
+4171179919.index
+1880852354.index

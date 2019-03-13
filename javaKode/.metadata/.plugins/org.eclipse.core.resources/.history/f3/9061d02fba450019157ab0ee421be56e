@@ -1,0 +1,33 @@
+package plab.emptyproject;
+import javafx.fxml.FXML;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import plab.serial.PLabSerial;
+
+public class MyController {
+	private int previousSliderValue = 0;
+	private PLabSerial serialConnection = new PLabSerial();
+
+	@FXML
+	void initialize() {
+		String portName;
+		if(serialConnection.openPLabPort()) {	
+		    portName = serialConnection.getOpenPortName();}
+		else {
+			portName = "No PLab BT device found.";
+		};
+		serialConnection.addListener(this, "messageReceived");	
+	}
+	
+	@FXML
+	public void mode1Pressed() {
+		System.out.prinln("Mode1 has been pressed")
+	}
+	
+	
+}
