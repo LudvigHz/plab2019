@@ -97,3 +97,33 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY net.sourceforge.vrapper.eclipse 1 0 2019-03-13 19:43:03.453
 !MESSAGE No .vrapperrc or _vrapperrc found.
+!SESSION 2019-03-14 11:38:41.793 -----------------------------------------------
+eclipse.buildId=4.10.0.I20181206-0815
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2019-03-14 11:39:17.731
+!MESSAGE No .vrapperrc or _vrapperrc found.
+!SESSION 2019-03-20 16:19:19.588 -----------------------------------------------
+eclipse.buildId=4.10.0.I20181206-0815
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/erling/koding/plab2019/javaKode -os linux -ws gtk -arch x86_64
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2019-03-20 16:20:01.224
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2019-03-20 16:20:23.950
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2019-03-20 16:21:25.034
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2019-03-20 16:21:31.978
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2019-03-20 16:21:41.368
+!MESSAGE No .vrapperrc or _vrapperrc found.
