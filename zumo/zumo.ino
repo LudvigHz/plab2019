@@ -25,10 +25,12 @@
 #define SPIN_SENSOR_NUM 10 // number of measurements from left to right
 
 
-const int echoPin = 2;
-const int triggerPin = 3;
-const int maxDistance = 300;
-const int servoPin = 6;
+#define ECHO_PIN A4
+#define TRIGGER_PIN A5
+#define MAX_PING_DISTANCE 100
+#define SERVO_PIN 6
+
+
 int angleToZumo;
 int distanceToZumo;
 int sonarTime;
@@ -42,7 +44,7 @@ int spinSensor_dist;
 Pushbutton button(ZUMO_BUTTON);
 ZumoMotors motors;
 ZumoReflectanceSensorArray sensors(QTR_NO_EMITTER_PIN);
-NewPing sonar(triggerPin, echoPin, maxDistance);
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_PING_DISTANCE);
 Servo minServo;
 
 
@@ -58,9 +60,9 @@ void turnRight(int dur){
 }
 
 // reverse function takes an int time in ms for duration
-void reverse(int time){
+void reverse(int dur){
   motors.setSpeeds(-ATTACK_SPEED, -ATTACK_SPEED);
-  delay(time);
+  delay(dur);
 }
 
 // turn towards direction dir, and full speed for time based on distance dist
@@ -72,9 +74,7 @@ void turnToAttack(int dir, int dist){
     turnLeft(dir * TIME_TO_TURN);
   }
   motors.setSpeeds(ATTACK_SPEED, ATTACK_SPEED);
-  delay(dist * 500);
 }
-
 
 // checks the color sensors to determine if it is on the border
 void keepInLine(unsigned sensor_values[NUM_SENSORS]){
@@ -105,6 +105,8 @@ void driveToObject(int dir, int dist){
 
   if (dist > MIN_ATTACK_DIST && dist < MAX_ATTACK_DIST) {
     turnToAttack(dir, dist);
+  } else if (dist < MIN_ATTACK_DIST) {
+   // TODO avoidManouver(dir);
   }
 }
 
@@ -112,7 +114,7 @@ void driveToObject(int dir, int dist){
 void setup(){
   Serial.begin(9600);
   sensors.init();
-  minServo.attach(servoPin);
+  minServo.attach(SERVO_PIN);
   button.waitForButton();
 }
 
@@ -128,21 +130,21 @@ void loop(){
   while (i < 12) {
     delay(150);
     unsigned int sonarTime = sonar.ping();
-    float distance = sonar.convert_cm(sonarTime);
+    float sonarDist = sonar.convert_cm(sonarTime);
     minServo.write(vinkel[i]);
-    if (distance < distanceToZumo) {
-        distanceToZumo = distance;
+    if (sonarDist < distanceToZumo && sonarDist != 0) {
+        distanceToZumo = sonarDist;
         angleToZumo = vinkel[i];
       }
     i++;
   }
-  Serial.print(sonarTime);
+  Serial.print(angleToZumo);
   Serial.print(' ');
-  Serial.print(sonarTime);
+  Serial.print(distanceToZumo);
   Serial.println();
 
-  //keepInLine(sensor_values);
+  keepInLine(sensor_values);
   driveToObject(angleToZumo, distanceToZumo);
 
-  distanceToZumo = maxDistance;
+  distanceToZumo = MAX_PING_DISTANCE;
 }
