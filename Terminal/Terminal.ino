@@ -23,9 +23,11 @@ void loop() {
     while (btSerial.available()) {
       char c = btSerial.read();
       Serial.write(c);
+      if(c == '1') {
+        Serial.write("Execute mode 1");
+      }
+      if(c == '2') {
+        Serial.write("Execute mode 2");
+      }
     };
-    while (Serial.available()) {
-      char c = Serial.read();
-      btSerial.write(c);
-    };    
 }
