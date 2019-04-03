@@ -13,7 +13,7 @@
 #define txPin 2  // Tx pin on Bluetooth unit
 #define rxPin 3  // Rx pin on Bluetooth unit
 
-char BTName[] = "Gruppe 12 Bluetooth";
+char BTName[] = "G12";
 char ATCommand[] = "AT+NAMEPLab_";
 PLabBTSerial btSerial(txPin, rxPin);
 
