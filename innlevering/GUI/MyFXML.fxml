@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?emfs /fxcontroller/Example1.fxml; ?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="363.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plab.emptyproject.MyController">
+   <children>
+      <Button fx:id="defensiveModeButton" layoutX="58.0" layoutY="154.0" mnemonicParsing="false" onAction="#defensiveButtonPressed" text="Defensive mode" />
+      <Button fx:id="offensiveModeButton" layoutX="218.0" layoutY="154.0" mnemonicParsing="false" onAction="#offensiveButtonPressed" text="Offensive mode" />
+      <Text layoutX="92.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SerialPort:" />
+      <TextField fx:id="serialPortTextField" layoutX="152.0" layoutY="52.0" />
+   </children>
+</Pane>
